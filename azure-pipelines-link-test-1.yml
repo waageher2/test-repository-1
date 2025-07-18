@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+  - job: BuildAndPublish
+    displayName: Build and publish artifact
+    steps:
+      - script: echo "This is a shared artifact from shared pipeline" > dummy.txt
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: 'dummy.txt'
+          ArtifactName: 'sharedOutput'
