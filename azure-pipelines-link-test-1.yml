@@ -15,7 +15,7 @@ jobs:
   - job: BuildAndPublish
     displayName: Build and publish artifact
     steps:
-      - script: echo "This is a shared artifact from shared pipeline testchange" > dummy.txt
+      - script: echo "This is a shared artifact from shared pipeline testchange 42" > dummy.txt
       - task: PublishBuildArtifacts@1
         inputs:
           PathtoPublish: 'dummy.txt'
